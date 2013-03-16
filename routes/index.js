@@ -18,12 +18,14 @@ function importProduction() {
   fs.readdir('public/img/uploads/products', function(err, files) {
     console.log(files);
     for (var i = 1; i < files.length; i++) {
-      var name = 'Sản Phẩm ' + i;
-      var product = new Product({ 'name': name });
-      product.inputDate = Date.now();
-      product.type = 0;
-      product._id = files[i];
-      product.save();
+      if (files[i] != '.DS_Store') {
+        var name = 'Sản Phẩm ' + i;
+        var product = new Product({ 'name': name });
+        product.inputDate = Date.now();
+        product.type = 0;
+        product._id = files[i];
+        product.save();
+      }
     }
   });
 };
