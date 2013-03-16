@@ -1,0 +1,399 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a {
+  text-decoration:none;
+  color: #000000;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td {
+  vertical-align: top;
+}
+/*background*/
+.background-size(@size: 100% 100%) {
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+  -o-background-size: @size;
+  background-size: @size;
+}
+/*end background*/
+.display-box() {
+  display:-moz-box;
+  display:-webkit-box;
+  display:box;
+}
+
+.box-flex(@size: 1.0) {
+  -moz-box-flex: @size;
+  -webkit-box-flex: @size;
+  box-flex: @size;
+}
+
+.box-shadow(@size) {
+  -webkit-box-shadow: @size;
+  -moz-box-shadow: @size;
+  box-shadow: @size;
+}
+/*transition*/
+.transitions(@attribute: all, @duration: 1s) {
+  transition: @attribute @duration;
+  -moz-transition: @attribute @duration;
+  -webkit-transition: @attribute @duration;
+  -o-transition: @attribute @duration;
+}
+/*end transition*/
+
+/*rounded corner*/
+.rounded-corners(@radius: 10px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.rounded-corners-top(@radius: 10px) {
+  border-top-left-radius: @radius;
+  border-top-right-radius: @radius;
+  -moz-border-top-left-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+}
+
+.rounded-corners-bottom(@radius: 10px) {
+  border-bottom-left-radius: @radius;
+  border-bottom-right-radius: @radius;
+  -moz-border-bottom-left-radius: @radius;
+  -moz-border-bottom-right-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+}
+
+.rounded-corners-left(@radius: 10px) {
+  border-top-left-radius: @radius;
+  border-bottom-left-radius: @radius;
+  -moz-border-top-left-radius: @radius;
+  -moz-border-bottom-left-radius: @radius;
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+}
+
+.rounded-corners-right(@radius: 10px) {
+  border-top-right-radius: @radius;
+  border-bottom-right-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  -moz-border-bottom-right-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+}
+
+.rounded-corners-bottom-left(@radius: 10px) {
+  border-bottom-left-radius: @radius;
+  -moz-border-bottom-left-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+}
+
+.rounded-corners-bottom-right(@radius: 10px) {
+  border-bottom-right-radius: @radius;
+  -moz-border-bottom-right-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+}
+/*end rounded corners*/
+
+/*button*/
+.button {
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.button-up{
+	border: 1px solid 		#ccc /*{a-bup-border}*/;
+	background: 			#eee;
+	font-weight: bold;
+	color: 					#222;
+	text-shadow: 0 1px 0 #ffffff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f1f1f1));
+	background-image: -webkit-linear-gradient(#ffffff, #f1f1f1);
+	background-image:    -moz-linear-gradient( #ffffff, #f1f1f1 );
+	background-image:     -ms-linear-gradient( #ffffff, #f1f1f1 );
+	background-image:      -o-linear-gradient( #ffffff, #f1f1f1 );
+	background-image:         linear-gradient( #ffffff, #f1f1f1);
+	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.3);
+	box-shadow: 0px 1px 2px	rgba(0,0,0,.3);
+}
+.button-up:visited,
+.button-up a.ui-link-inherit {
+	color: 					#2F3E46 /*{a-bup-color}*/;
+}
+.button-hover {
+	border: 1px solid 		#bbb /*{a-bhover-border}*/;
+	background: 			#dfdfdf;
+	font-weight: bold;
+	color: 					#222;
+	text-shadow: 0 1px 0 #ffffff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6), to( #e0e0e0));
+	background-image: -webkit-linear-gradient( #f6f6f6, #e0e0e0);
+	background-image:    -moz-linear-gradient( #f6f6f6, #e0e0e0);
+	background-image:     -ms-linear-gradient( #f6f6f6, #e0e0e0);
+	background-image:      -o-linear-gradient( #f6f6f6, #e0e0e0);
+	background-image:         linear-gradient( #f6f6f6, #e0e0e0);
+}
+.button-hover:visited,
+.button-hover:hover,
+.button-hover a.ui-link-inherit {
+	color: 					#2F3E46 /*{a-bhover-color}*/;
+}
+.button-down {
+	border: 1px solid 		#bbb /*{a-bdown-border}*/;
+	background: 			#d6d6d6;
+	font-weight: bold;
+	color: 					#222;
+	text-shadow: 0 1px 0 #ffffff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from( #d0d0d0 ), to( #dfdfdf ));
+  background-image: -webkit-linear-gradient( #d0d0d0 , #dfdfdf );
+  background-image:    -moz-linear-gradient( #d0d0d0 , #dfdfdf );
+  background-image:     -ms-linear-gradient( #d0d0d0 , #dfdfdf );
+  background-image:      -o-linear-gradient( #d0d0d0 , #dfdfdf );
+  background-image:         linear-gradient( #d0d0d0 , #dfdfdf );
+  opacity: 0.7;
+	-moz-box-shadow: 0px 0px 0px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 0px rgba(0,0,0,.3);
+}
+.button-down:visited,
+.button-down:hover,
+.button-down a.ui-link-inherit {
+	color: 					#2F3E46 /*{a-bdown-color}*/;
+}
+.button-up,
+.button-hover,
+.button-down {
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	text-decoration: none;
+}
+/*end button*/
+
+.clear {
+  clear: both;
+}
+
+.iconGlowing {
+  background-color: red;
+  .rounded-corners(6px);
+  width: 2em;
+  height: 2em;
+  .box-shadow(0px 0px 10px 2px red);
+}
+
+#back-top {
+	position: fixed;
+	bottom: 7.6em;
+	margin-left: 960px;
+}
+
+#back-top a {
+	width: 6em;
+	display: block;
+	text-align: center;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover {
+	color: #000;
+}
+
+/* arrow icon (span tag) */
+#back-top span {
+	width: 6em;
+	height: 6em;
+	display: block;
+	margin-bottom: 7px;
+	background: #999999 url(/img/up.png) no-repeat center center;
+
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #333333;
+}
+
+#dim {
+  background: #000; 
+  left: 0; top: 0; 
+	width: 100%; 
+	height: 100%;
+	position: absolute;
+	opacity: 0.8;
+	z-index: 99;
+}
+
+#popup {
+  z-index: 999;
+  position: absolute; 
+  width: 70%;
+  left: 50%;
+  top: 2em;
+  margin: auto;
+  margin-left: -35%;
+  height: 30em;
+  
+  #popup-content {
+    line-height: 1.8em;
+    width: 70%;
+    background: #333;
+  	border: 2px solid #ddd;
+  	font-size: 1.2em;
+  	.box-shadow(0px 0px 20px #000);
+    .rounded-corners(4px);
+    position: fixed;
+    border: 1px solid 		#ccc /*{a-bup-border}*/;
+  	background: 			#eee;
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f1f1f1)); /* Saf4+, Chrome */
+  	background-image: -webkit-linear-gradient(#ffffff, #f1f1f1); /* Chrome 10+, Saf5.1+ */
+  	background-image:    -moz-linear-gradient( #ffffff, #f1f1f1 ); /* FF3.6 */
+  	background-image:     -ms-linear-gradient( #ffffff, #f1f1f1 ); /* IE10 */
+  	background-image:      -o-linear-gradient( #ffffff, #f1f1f1 ); /* Opera 11.10+ */
+  	background-image:         linear-gradient( #ffffff, #f1f1f1);
+    #title {
+      text-align: center;
+      padding: 0.4em 0;
+      font-size: 1.3em;
+      color: #7D7D7D;
+      font-weight: bold;
+      text-shadow: 0 2px 0 #000;
+    }
+    #close-button {
+      position: relative;
+      float: right;
+      top: -2.4em;
+      padding: 0.1em;
+      cursor: pointer;
+      border: 1px solid 		#ccc /*{a-bup-border}*/;
+    	background: 			#B20000;
+    	font-weight: bold;
+    	color: 					#222;
+    	.box-shadow( 0px 1px 2px rgba(0,0,0,.3));
+    }
+    #close-button:active {
+      opacity: 0.7;
+    }
+    #big-image-cover {
+      width: 95%;
+      opacity: 1;
+      margin: 0 2.5% 1em 2.5%;
+      .box-shadow(0px 0px 10px #000);
+      text-align: center;
+      #big-image {
+        position: relative;
+        max-height:98%;
+        max-width:98%;
+        width: auto;
+        height : auto;
+      }
+    }
+    #small-image {
+      padding: 0 0.3em;
+      text-align: center;
+      .small-image {
+        width: 3em;
+        height: 3em;
+        .box-shadow(0px 0px 5px rgba(0,0,0,.8));
+        margin: 0 0.2em;
+      }
+    }
+    #popup-service-image {
+      float: left;
+      width: 10em;
+      .box-shadow(0px 0px 5px rgba(0,0,0,.8));
+      margin-right: 0.5em;
+      .service-image {
+        width: 10em;
+        height: 10em;
+      }
+    }
+    #popup-service-fullDes {
+      text-align: justify;
+      color: #000;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+#paging {
+  text-align: center;
+  .page {
+    display:inline-block;
+    padding: 0.2em;
+    margin: 0 0.1em;
+    border: 1px solid #fff;
+    background-color: #C2E0FF;
+    opacity: 0.8;
+  }
+  .page:hover {
+    border: 1px solid #000;
+  }
+  .page-active {
+    border: 1px solid #5C7A99;
+    background-color: #7AA3CC;
+    opacity: 1;
+  }
+}
+
+@font-face {
+    font-family: Header;
+    src: url(../font/ANKLEPAN.TTF);
+}

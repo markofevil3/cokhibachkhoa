@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  div(id="imageSlider")
+    div(id="sliderFrame")
+      div(id="slider")
+        img(src="img/image-slider-1.jpg")
+        img(src="img/image-slider-2.jpg")
+        img(src="img/image-slider-3.jpg", alt="#htmlcaption3")
+        img(src="img/image-slider-4.jpg")
+      div(id="thumbs")
+        div(class="thumb")
+          img(src="img/thumb-1.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-2.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-3.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-4.jpg", class="thumb")
+  div(id="products", class="midContent")
+    div(id="title") Sản Phẩm -
+      span(style="font-size:0.7em") &nbsp;#{currentType.name}
+      div(id="products-sort")
+        select(name="productType-select", id="productType-select")
+          - if (currentType.id == 'all')
+            option(value="#{currentType.id}", selected="selected") #{currentType.name}
+          - else
+            option(value="all") Tất cả
+          - each productType in productTypes
+            - if (currentType.id == productType.id)
+              option(value="#{productType.id}", selected="selected") #{productType.name}
+            - else
+              option(value="#{productType.id}") #{productType.name}
+    div(class="space")
+    div(class="clear")
+    div(id="content")
+      ul(id="products-display")
+        - each product,i in products
+            li(class="product", data-id="#{product._id}", data-title="#{product.name}")
+              img(src="img/uploads/products/#{product._id}/#{product._id}0.jpg", class="product-image")
+              div(class="product-name") #{product.name}
+              - each type in productTypes
+                - if (type.id.toString() == product.type)
+                  div Loại: #{type.name}
+        li(class="clear")
+      br 
+      div(id="paging")
+        - each page in pages
+          - if (currentIndex == page.startIndex)
+            div(class="page page-active")
+              a(href="/products?startIndex=#{page.startIndex}&type=all") #{page.index}
+          - else 
+            div(class="page")
+              a(href="/products?startIndex=#{page.startIndex}&type=all") #{page.index}
+        div(class="clear")

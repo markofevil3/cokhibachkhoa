@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div(id="imageSlider")
+    div(id="sliderFrame")
+      div(id="slider")
+        img(src="img/image-slider-1.jpg")
+        img(src="img/image-slider-2.jpg")
+        img(src="img/image-slider-3.jpg", alt="#htmlcaption3")
+        img(src="img/image-slider-4.jpg")
+      div(id="thumbs")
+        div(class="thumb")
+          img(src="img/thumb-1.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-2.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-3.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-4.jpg", class="thumb")
+  div(id="services", class="midContent")
+    div(id="title") Dịch Vụ
+    div(class="space")
+    div(id="content")
+      ul(id="services-display")
+        - each serviceType in serviceTypes
+          li(class="service-li")
+            div(class="service-panel")
+              div(id="id", style="display:none") #{serviceType.id}
+              img(src="/img/uploads/services/#{serviceType.id}0.jpg", class="service-image")
+              div(id="service-name", class="service-name") #{serviceType.name}
+              div(id="service-shortDes", class="service-shortDes") #{serviceType.shordDes}
+        li(class="clear")

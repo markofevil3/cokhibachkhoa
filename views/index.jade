@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  div(id="imageSlider")
+    div(id="sliderFrame")
+      div(id="slider")
+        img(src="img/image-slider-1.jpg")
+        img(src="img/image-slider-2.jpg")
+        img(src="img/image-slider-3.jpg", alt="#htmlcaption3")
+        img(src="img/image-slider-4.jpg")
+      div(id="thumbs")
+        div(class="thumb")
+          img(src="img/thumb-1.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-2.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-3.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-4.jpg", class="thumb")
+  div(id="homepageMenu")
+    ul(id="homepage-display")
+      li(class="homepage-li")
+        a(href="/services?type=all")
+          div(class="homepage-panel")
+            img(src="img/uploads/main/dichvu.jpg", class="homepage-image")
+            div(class="homepage-name") Dịch Vụ
+            div(class="homepage-shortDes") Cung cấp các dịch vụ về cơ khí  chính xác, cơ khí thủy lực( sửa chữa, lắp ráp, chế tạo, tư vấn...)
+      li(class="homepage-li")
+        a(href="/products?startIndex=0&type=all")
+          div(class="homepage-panel")
+            img(src="img/uploads/main/sanpham.jpg", class="homepage-image")
+            div(class="homepage-name") Sản Phẩm
+            div(class="homepage-shortDes") Các sản phẩm cơ khí với độ chính xác cao
+      li(class="homepage-li")
+        a(href="")
+          div(class="homepage-panel")
+            img(src="img/uploads/main/nghiencuu.jpg", class="homepage-image")
+            div(class="homepage-name") Nghiên Cứu
+            div(class="homepage-shortDes") Những công trình nghiên cứu đã được áp dụng thực tế
+      li(class="homepage-li")
+        a(href="/training")
+          div(class="homepage-panel")
+            img(src="img/uploads/main/daotao.jpg", class="homepage-image")
+            div(class="homepage-name") Đào Tạo
+            div(class="homepage-shortDes") Đào tạo gia công cơ khí và thuỷ lực
+      li(class="clear")
+  div(id="banner")
+    a(href="/aboutUs")
+      img(src="img/uploads/main/banner.jpg", id="banner-image")

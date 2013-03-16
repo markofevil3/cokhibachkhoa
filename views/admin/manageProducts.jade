@@ -1,0 +1,147 @@
+extends layout
+
+block content
+  div(id="right-content")
+    case page
+      when 'display'
+        table(id="product-display")
+          tr
+            th
+              span(class="row-title") Sản Phẩm
+            th
+              span(class="row-title") Loại
+            th
+              span(class="row-title") Thông tin
+            th(width="250px")
+              span(class="row-title") Ảnh
+            th(width="150px")
+              span(class="row-title") Chức Năng
+          - each product in products
+            tr
+              td(style="text-align:center")
+                span #{product.name}
+              td(style="text-align:center")
+                span #{productTypes[product.type].name}
+              td
+                - if (typeof(product.details) != 'undefined')
+                  - each attr,i in product.details
+                    span - #{i}: #{attr}
+                    br
+              td(style="text-align:center")
+                img(src="img/uploads/products/#{product._id}/#{product._id}0.jpg", class="product-image")
+                img(src="img/uploads/products/#{product._id}/#{product._id}1.jpg", class="product-image")
+                img(src="img/uploads/products/#{product._id}/#{product._id}2.jpg", class="product-image")
+              td(style="text-align:center")
+                div(class="button-up", id="edit-article")
+                  a(href="manageProducts?page=edit&pid=#{product._id}", id="edit-link") Edit
+                form(action="manageProducts", method="POST", onsubmit="return confirm_prompt('Bạn có chắc chắn muốn xoá?');")
+                  input(type="text", style="display:none", name="productId", value="#{product._id}")
+                  button(class="button-up", id="delete-article", name="productFunction", value="Delete") Delete
+        - each page in pages
+          a(href="manageProducts?page=display&startIndex=#{page.startIndex}") #{page.index} 
+        div(class="button-up button-link", id="insert-article")
+          a(href="manageProducts?page=insert", id="insert-link") Insert
+      when 'edit'
+        form(action="manageProducts", method="POST", enctype="multipart/form-data")
+          input(type="text", name="id", value="#{product._id}", style="display:none")
+          span Tên sản phẩm:&nbsp;
+            input(type="text", name="name", required="required", value="#{product.name}")
+          br
+          br
+          span Loại sản phẩm:&nbsp;
+            select(name="productType", id="productType")
+              - each productType,i in productTypes
+                - if (i == product.type)
+                  option(value="#{i}", selected="selected") #{productType.name}
+                - else
+                  option(value="#{i}") #{productType.name}
+          br
+          br
+          span Ảnh sản phẩm( tối đa 3 ảnh jpg/png/jpeg ):
+          br
+          img(src="img/uploads/products/#{product._id}/#{product._id}0.jpg", class="edit-product-image")
+          input(type="file", name="displayImage0")
+          br
+          img(src="img/uploads/products/#{product._id}/#{product._id}1.jpg", class="edit-product-image")
+          input(type="file", name="displayImage1")
+          br
+          img(src="img/uploads/products/#{product._id}/#{product._id}2.jpg", class="edit-product-image")
+          input(type="file", name="displayImage2")
+          br
+          br
+          span Thông tin sản phẩm:&nbsp;
+          br
+          table(id="productDetail-table")
+            tr
+              td 
+                span(class="row-title") Thông tin
+              td
+                span(class="row-title") Nội dung
+            - if (typeof(product.details) != 'undefined')
+              - var count = 0
+              - each attr,i in product.details
+                tr
+                  td
+                    input(type="text", name="attribute#{count}", class="input-box", value="#{i}")
+                  td
+                    textarea(name="value#{count}", class="input-textarea") #{attr}
+                - count += 1
+            tr
+              td
+              td
+                div(id="addMoreSpace") Thêm
+          input(type="submit", name="productFunction", value="Edit")
+      when 'insert'
+        if (typeof(success) != 'undefined' && success == 'true')
+          span Đã thêm sản phẩm mới
+        if (typeof(success) != 'undefined' && success == 'false')
+          span Có lỗi! Thêm sản phẩm mới thất bại
+        form(action="manageProducts", method="POST", enctype="multipart/form-data")
+          span Tên sản phẩm:&nbsp;
+            input(type="text", name="name", required="required")
+          br
+          br
+          span Loại sản phẩm:&nbsp;
+            select(name="productType", id="productType")
+              - each productType,i in productTypes
+                option(value="#{i}") #{productType.name}
+          br
+          br
+          span Ảnh sản phẩm( tối đa 3 ảnh jpg/png/jpeg ):
+          br
+          input(type="file", name="displayImage0")
+          br
+          input(type="file", name="displayImage1")
+          br
+          input(type="file", name="displayImage2")
+          br
+          br
+          span Thông tin sản phẩm:&nbsp;
+          br
+          table(id="productDetail-table")
+            tr
+              td 
+                span(class="row-title") Thông tin
+              td
+                span(class="row-title") Nội dung
+            tr
+              td
+                input(type="text", name="attribute1", class="input-box")
+              td
+                textarea(name="value1", class="input-textarea")
+            tr
+              td
+                input(type="text", name="attribute2", class="input-box")
+              td
+                textarea(name="value2", class="input-textarea")
+            tr
+              td
+                input(type="text", name="attribute3", class="input-box")
+              td
+                textarea(name="value3", class="input-textarea")
+            tr
+              td
+              td
+                div(id="addMoreSpace") Thêm
+          input(type="submit", name="productFunction", value="Insert")
+  div(class="clear")

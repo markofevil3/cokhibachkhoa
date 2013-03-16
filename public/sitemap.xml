@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://cokhithuyluc.com/</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/aboutUs</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/services?type=all</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=all</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=0</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=1</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=2</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=3</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/products?startIndex=0&amp;type=4</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/training</loc>
+</url>
+<url>
+  <loc>http://cokhithuyluc.com/contactUs</loc>
+</url>
+</urlset>

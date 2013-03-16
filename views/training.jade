@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div(id="imageSlider")
+    div(id="sliderFrame")
+      div(id="slider")
+        img(src="img/image-slider-1.jpg")
+        img(src="img/image-slider-2.jpg")
+        img(src="img/image-slider-3.jpg", alt="#htmlcaption3")
+        img(src="img/image-slider-4.jpg")
+      div(id="thumbs")
+        div(class="thumb")
+          img(src="img/thumb-1.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-2.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-3.jpg", class="thumb")
+        div(class="thumb")
+          img(src="img/thumb-4.jpg", class="thumb")
+  div(id="training", class="midContent")
+    div(id="title") Đào Tạo
+    div(class="space")
+    div(id="content")
+      div(id="left-panel")
+        div(id="content") #{trainingType.fullDes}
+      div(id="right-panel")
+        img(src="img/uploads/training/0.jpg", class="training-image")
+        img(src="img/uploads/training/1.jpg", class="training-image")
+        img(src="img/uploads/training/2.jpg", class="training-image")
+      div(class="clear")
+      
